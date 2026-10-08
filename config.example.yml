@@ -1,0 +1,59 @@
+vault_name: MyVault
+locale: en
+date_format: "DD-MM-YYYY"
+
+templates_dir: Templates
+skip_folders: [".obsidian", ".trash", ".git", "Attachments"]
+
+forward:
+  folder: Inbox
+  template: Templates/forward.md
+
+clipping:
+  folder: Clippings
+  template: Templates/article.md
+
+daily:
+  folder: Journal
+  format: "YYYY-MM-DD"
+  template: Templates/daily.md
+  thought_heading: "## Notes"
+  task_heading: "## Tasks"
+
+attachments:
+  photo: Attachments/photos
+  video: Attachments/videos
+  voice: Attachments/voices
+  audio: Attachments/audios
+  other: Attachments/documents
+
+routes:
+  note:
+    template: note.md
+    folder: Notes
+    ask: "Note title"
+  book:
+    template: book.md
+    folder: Books
+    ask: "Book title"
+    aliases: [reading]
+  service:
+    template: service.md
+    folder: Infra
+    ask: "Service name"
+
+aliases:
+  s: find
+  t: task
+
+strangers:
+  cooldown: 600
+  notify_owner: true
+  replies:
+    - "Wrong door."
+    - "We don't know each other."
+    - "No."
+
+# messages:
+#   help_head: "Your own wording here."
+#   saved_note: "Saved"

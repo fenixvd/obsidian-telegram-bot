@@ -1,0 +1,20 @@
+services:
+  obsidian-bot:
+    build: .
+    image: obsidian-telegram-bot:local
+    container_name: obsidian-bot
+    restart: unless-stopped
+    user: "${UID:-1000}:${GID:-1000}"
+    env_file: .env
+    environment:
+      TZ: ${TZ:-UTC}
+      VAULT: /vault
+      STATE_DIR: /state
+      CONFIG: /app/config.yml
+    volumes:
+      - ${VAULT_PATH:?set VAULT_PATH to your vault}:/vault
+      - ./state:/state
+      - ./config.yml:/app/config.yml:ro
+    logging:
+      driver: json-file
+      options: {max-size: "10m", max-file: "3"}
